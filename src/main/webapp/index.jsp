@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <link href="WEB_INF/pages/common.jsp"> -->
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="WEB-INF/pages/common.jsp"></jsp:include>
 	<h1>Hello World</h1>
+	<p>${pageContext.request.contextPath }</p>
+	<p>${pageContext.request.scheme }</p>
+	<p>${pageContext.request.localPort }</p>
+	<p>${pageContext.request.serverName }</p>
+	<br>
+	<a href="test/list">show the list</a>
 </body>
 </html>
