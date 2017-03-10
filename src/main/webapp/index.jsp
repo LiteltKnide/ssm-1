@@ -16,5 +16,7 @@
 	<p>${pageContext.request.serverName }</p>
 	<br>
 	<a href="test/list">show the list</a>
+	<br>
+	<a href="user/query">No.1</a>
 </body>
 </html>
