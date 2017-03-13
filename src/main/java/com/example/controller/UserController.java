@@ -20,4 +20,10 @@ public class UserController {
 		return "test/list";
 	}
 	
+//	@RequestMapping("/login")
+//	public String login(){
+//		
+//		return "user/login";
+//	}
+	
 }
