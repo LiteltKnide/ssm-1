@@ -6,5 +6,5 @@
 	pageContext.setAttribute("basePath", basePath);
 %>
 
-<base href="<%=basePath%>">
+<%-- <base href="<%=basePath%>"> --%>
 
