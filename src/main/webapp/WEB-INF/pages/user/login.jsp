@@ -18,6 +18,7 @@
 </head>
 <body>
 	<form action="${basePath }user/login" method="post">
+		<input type="hidden" name="token" value="${token }">
 		<table width="20%" align="center" border="1">
 			<tr>
 				<td>Username</td>

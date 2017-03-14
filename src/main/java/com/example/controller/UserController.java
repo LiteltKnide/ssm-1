@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.annotations.Token;
 import com.example.pojo.User;
 import com.example.service.UserService;
 
@@ -23,10 +24,10 @@ public class UserController {
 	}
 	
 	@RequestMapping("/login")
+//	@Token(save=true)
 	public String login(@RequestParam("username") String username,
 			@RequestParam("password") String password){
 		
-		System.out.println("Login Success" + username + password);
 		
 		User user = new User();
 		user.setUsername(username);
@@ -34,6 +35,7 @@ public class UserController {
 		
 		boolean exsit = userService.isExsit(user);
 		if (exsit) {
+			System.out.println("Login Success" + username + password);
 			return "user/success";
 		}
 		return "user/login";
