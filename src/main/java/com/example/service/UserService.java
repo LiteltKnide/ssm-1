@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,8 @@ public class UserService {
 		System.out.println(user);
 	}
 	
+	public boolean isExsit(User user){
+		List<User> list = userMapper.queryByUAP(user);
+		return list.size() > 0;
+	}
 }

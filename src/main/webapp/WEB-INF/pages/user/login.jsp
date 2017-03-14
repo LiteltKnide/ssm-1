@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="../common/MainMenu.jsp"></jsp:include>
+<%@ include file="/WEB-INF/pages/common/MainMenu.jsp" %>
 <title>登陆</title>
 <script type="text/javascript">
 	$(function(){
@@ -12,45 +12,31 @@
 		var aa = "aaa";
 		console.log(aa);
 		
-		$("#login").click(function(){
-			
-			var username = $("#username").val();
-			var password = $("#password").val();
-// 			var basePath = ${basrPath};
-// 			conlose.log(basePath)
-// 			$.ajax({
-// 				type:"POST",
-// 				url: "${basePath}user/login",			
-// 				data: "username="+username+"&password="+password,
-// 				success: function(msg){
-// 					alert(msg)
-// 				}
-// 			});
-			console.log(username + "-" + password);
-		});
 		
 	});
 </script>
 </head>
 <body>
-	<table width="20%" align="center" border="1">
-		<tr>
-			<td>Username</td>
-			<td>
-				<input id="username" type="text" name="username" >
-			</td> 
-		</tr>
-		<tr>
-			<td>Password</td>
-			<td>
-				<input id="password" type="password" name="password">
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" style="text-align: center;">
-				<button id="login" name="Login">Login</button>
-			</td>
-		</tr>
-	</table>
+	<form action="${basePath }user/login" method="post">
+		<table width="20%" align="center" border="1">
+			<tr>
+				<td>Username</td>
+				<td>
+					<input id="username" type="text" name="username" >
+				</td> 
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>
+					<input id="password" type="password" name="password">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;">
+					<input type="submit" value="Login">
+				</td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
