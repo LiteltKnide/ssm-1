@@ -9,7 +9,7 @@
 <body>
 <%-- 	<jsp:include page="common.jsp"></jsp:include> --%>
 	<div >
-		<p><span><img src="${basePath }static/image/daoMain.png">小刀工具  ,  </span><span>胡锦涛</span></p>
+		<p><span><img src="${basePath }static/image/daoMain.png">小刀工具  ,  </span><span>${LoginUser.username }</span></p>
 	</div>
 </body>
 </html>

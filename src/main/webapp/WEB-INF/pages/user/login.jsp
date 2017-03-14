@@ -21,6 +21,11 @@
 		<input type="hidden" name="token" value="${token }">
 		<table width="20%" align="center" border="1">
 			<tr>
+				<td colspan="2">
+					${msg }
+				</td>
+			</tr>
+			<tr>
 				<td>Username</td>
 				<td>
 					<input id="username" type="text" name="username" >

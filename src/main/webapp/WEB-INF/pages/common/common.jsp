@@ -5,6 +5,7 @@
 	System.out.println(basePath);
 	pageContext.setAttribute("basePath", basePath);
 %>
+<%-- <%@taglib prefix="c" uri=""%> --%>
 <script type="text/javascript" src="${basePath }static/js/jquery-1.7.2.min.js"></script>
 <%-- <base href="<%=basePath%>"> --%>
 

@@ -20,8 +20,12 @@ public class UserService {
 		System.out.println(user);
 	}
 	
-	public boolean isExsit(User user){
+	public User isExsit(User user){
 		List<User> list = userMapper.queryByUAP(user);
-		return list.size() > 0;
+		if (list.size() == 0) {
+			return null;
+		}else{
+			return list.get(0);
+		}
 	}
 }

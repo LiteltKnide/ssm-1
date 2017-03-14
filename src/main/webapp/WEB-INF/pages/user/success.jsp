@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="/WEB-INF/pages/common/MainMenu.jsp" %>
 	<h1>Login Success</h1>
 </body>
 </html>
