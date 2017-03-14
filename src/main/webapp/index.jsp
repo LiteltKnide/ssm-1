@@ -15,6 +15,6 @@
 	<br>
 	<a href="user/query">No.1</a>
 	<br>
-	<a href="user/login">login</a>
+	<a href="user/toLogin">login</a>
 </body>
 </html>

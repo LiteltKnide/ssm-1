@@ -5,6 +5,6 @@
 	System.out.println(basePath);
 	pageContext.setAttribute("basePath", basePath);
 %>
-
+<script type="text/javascript" src="${basePath }static/js/jquery-1.7.2.min.js"></script>
 <%-- <base href="<%=basePath%>"> --%>
 
