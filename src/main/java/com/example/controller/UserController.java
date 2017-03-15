@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.annotations.Token;
 import com.example.pojo.User;
 import com.example.service.UserService;
+import com.example.utils.MD5Util;
 import com.thoughtworks.xstream.core.MapBackedDataHolder;
 
 @Controller
@@ -37,7 +38,7 @@ public class UserController {
 		
 		User user = new User();
 		user.setUsername(username);
-		user.setPassword(password);
+		user.setPassword(MD5Util.MD5Encode32(password));
 		
 		User loginUser = userService.isExsit(user);
 		System.out.println(loginUser);
@@ -59,6 +60,8 @@ public class UserController {
 	@RequestMapping("/register")
 	public String register(Map<String, Object> map, User user){
 		
+		System.out.println(user);
+		user.setPassword(MD5Util.MD5Encode32(user.getPassword()));
 		System.out.println(user);
 		int row = userService.insert(user);
 		String msg = "";
