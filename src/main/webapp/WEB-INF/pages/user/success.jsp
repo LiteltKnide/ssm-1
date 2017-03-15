@@ -4,10 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/common/base.jsp" %>
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="/WEB-INF/pages/common/MainMenu.jsp" %>
-	<h1>Login Success</h1>
+	
+	<%@ include file="/common/guest_top.jsp" %>
+	
+	<div id="mainDiv" class="borderDiv">
+		
+		[Login success]
+		
+	</div>
+	
+	<%@ include file="/common/guest_bottom.jsp" %>
 </body>
 </html>

@@ -43,11 +43,33 @@ public class UserController {
 		System.out.println(loginUser);
 		if (loginUser != null) {
 			System.out.println("Login Success" + username + password);
-			session.setAttribute("LoginUser", loginUser);
+			session.setAttribute("loginUser", loginUser);
 			return "user/success";
 		}
 		map.put("msg", "用户名密码错误！");
 		return "user/login";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.removeAttribute("loginUser");
+		return "user/login";
+	}
+	
+	@RequestMapping("/register")
+	public String register(Map<String, Object> map, User user){
+		
+		System.out.println(user);
+		int row = userService.insert(user);
+		String msg = "";
+		if (row > 0) {
+			msg = "注册成功！";
+			map.put("msg", msg);
+			return "user/login";
+		}
+		msg = "信息有误";
+		map.put("msg", msg);
+		return "user/register";
 	}
 	
 }

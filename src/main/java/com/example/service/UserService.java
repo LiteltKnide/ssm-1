@@ -28,4 +28,9 @@ public class UserService {
 			return list.get(0);
 		}
 	}
+
+	public int insert(User user) {
+		
+		return userMapper.insert(user);
+	}
 }

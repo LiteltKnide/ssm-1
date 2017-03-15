@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- <link href="WEB_INF/pages/common.jsp"> -->
+<%@ include file="/common/base.jsp" %>
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	<jsp:include page="WEB-INF/pages/common/common.jsp"></jsp:include> --%>
-	<jsp:include page="WEB-INF/pages/common/MainMenu.jsp"></jsp:include>
-	<h1>Hello World</h1>
-	<a href="test/list">show the list</a>
-	<br>
-	<a href="user/query">No.1</a>
-	<br>
-	<a href="user/toLogin">login</a>
+	
+	<%@ include file="/common/guest_top.jsp" %>
+	
+	<div id="mainDiv" class="borderDiv">
+		
+		[欢迎光临在线调查系统]
+		
+	</div>
+	
+	<%@ include file="/common/guest_bottom.jsp" %>
 </body>
 </html>

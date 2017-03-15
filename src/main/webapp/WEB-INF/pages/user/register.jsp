@@ -12,14 +12,10 @@
 	<%@ include file="/common/guest_top.jsp" %>
 	
 	<div id="mainDiv" class="borderDiv">
-		[用户登录]
-		<form action="user/login" method="post">
+		
+		[用户注册]
+		<form action="user/register" method="post">
 			<table class="formTable">
-				<c:if test="${!empty msg }">
-					<tr>
-						<td colspan="2" style="color: red">${msg }</td>
-					</tr>
-				</c:if>
 				<tr>
 					<td>用户名</td>
 					<td>
@@ -29,15 +25,29 @@
 				<tr>
 					<td>密码</td>
 					<td>
-						<input class="longInput" type="password" name="password" placeholder="请输入密码">
+						<input class="longInput"  type="password" name="password" placeholder="请输入密码">
+					</td>
+				</tr>
+				<tr>
+					<td>确认密码</td>
+					<td>
+						<input class="longInput"  type="password" name="confirmPassword" placeholder="请再次输入密码">
+					</td>
+				</tr>
+				<tr>
+					<td>性质</td>
+					<td>
+						<select name="role">
+							<option value="0" label="普通用户">
+							<option value="1" label="公司用户">
+						</select>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="登录" >
+						<input type="submit" value="注册">
 					</td>
 				</tr>
-				
 			</table>
 		</form>
 		
