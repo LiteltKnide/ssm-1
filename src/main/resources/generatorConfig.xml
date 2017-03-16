@@ -44,6 +44,9 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 		<!-- 指定数据库表 -->
-		<table tableName="user"></table>
+<!-- 		<table tableName="user"></table> -->
+		<table tableName="survey"></table>
+		<table tableName="bag"></table>
+		<table tableName="questions"></table>
 	</context>
 </generatorConfiguration>
