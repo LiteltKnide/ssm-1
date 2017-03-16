@@ -1,20 +1,10 @@
 package com.example.mapper;
 
 import com.example.pojo.Survey;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
-public interface SurveyMapper {
+import org.springframework.stereotype.Repository;
 
-    int deleteByPrimaryKey(Integer id);
+@Repository
+public interface SurveyMapper extends BaseMapper<Survey>{
 
-    int insert(Survey record);
-
-    int insertSelective(Survey record);
-
-    Survey selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Survey record);
-
-    int updateByPrimaryKey(Survey record);
 }

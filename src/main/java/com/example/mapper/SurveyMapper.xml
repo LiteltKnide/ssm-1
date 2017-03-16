@@ -25,12 +25,6 @@
     delete from survey
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.pojo.SurveyExample" >
-    delete from survey
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
   <insert id="insert" parameterType="com.example.pojo.Survey" >
     insert into survey (id, survey_name, status, 
       logo_path, create_time, finish_time, 

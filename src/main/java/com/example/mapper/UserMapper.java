@@ -7,11 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User>{
 	
-	int insert(User user);
-
-    User selectByPrimaryKey(Integer id);
-
     List<User> queryByUAP(User user);
 }
