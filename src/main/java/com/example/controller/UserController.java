@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.annotations.Token;
+import com.example.exceptions.UsernameAlreadyExistException;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import com.example.utils.MD5Util;
@@ -63,16 +64,20 @@ public class UserController {
 		System.out.println(user);
 		user.setPassword(MD5Util.MD5Encode32(user.getPassword()));
 		System.out.println(user);
-		int row = userService.insert(user);
 		String msg = "";
-		if (row > 0) {
+		try {
+			userService.insert(user);
+			
 			msg = "注册成功！";
 			map.put("msg", msg);
 			return "user/login";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new UsernameAlreadyExistException("用户名已存在！");
 		}
-		msg = "信息有误";
-		map.put("msg", msg);
-		return "user/register";
+//		msg = "信息有误";
+//		map.put("msg", msg);
+//		return "user/register";
 	}
 	
 }

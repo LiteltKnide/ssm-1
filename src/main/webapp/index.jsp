@@ -14,6 +14,7 @@
 	<div id="mainDiv" class="borderDiv">
 		
 		[欢迎光临在线调查系统]
+		<a href="user/query">test</a>
 		
 	</div>
 	

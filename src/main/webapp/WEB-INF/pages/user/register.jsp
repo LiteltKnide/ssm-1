@@ -16,6 +16,13 @@
 		[用户注册]
 		<form action="user/register" method="post">
 			<table class="formTable">
+				<c:if test="${!empty exception.message }">
+					<tr>
+						<td colspan="2" style="color: red">
+							${exception.message }
+						</td>
+					</tr>
+				</c:if>
 				<tr>
 					<td>用户名</td>
 					<td>
