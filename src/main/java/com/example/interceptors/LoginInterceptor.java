@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler;
 
+import com.example.pojo.User;
+
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 	
 	private static String[] passpath = new String[]{
@@ -34,7 +36,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		//requestURI = contextPath + servletPath
 		String servletPath = request.getServletPath();
 		System.out.println(servletPath);
-		if (!containStr(servletPath)) {
+		if (containStr(servletPath)) {
+			return true;
+		}
+		
+		User loginUser = (User) request.getSession().getAttribute("loginUser");
+		if (loginUser == null) {
 			System.out.println("==============NO PASS==================");
 			request.setAttribute("msg", "请您先登录！");
 			request.getRequestDispatcher("/user/toLogin").forward(request, response);

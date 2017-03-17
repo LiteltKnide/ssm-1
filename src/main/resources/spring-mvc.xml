@@ -27,6 +27,7 @@
 
 	<mvc:view-controller path="user/toLogin" view-name="user/login"/>
 	<mvc:view-controller path="user/toRegister" view-name="user/register"/>
+	<mvc:view-controller path="survey/new" view-name="survey/survey_new"/>
 	
 	<!-- 拦截器配置 -->
 	<mvc:interceptors>
@@ -47,7 +48,15 @@
 		<property name="exceptionMappings">
 			<props>
 				<prop key="com.example.exceptions.UsernameAlreadyExistException">user/register</prop>
+				<prop key="com.example.exceptions.FileIsNotImgException">survey/survey_new</prop>
 			</props>
 		</property>
 	</bean>
+	
+	<!-- 文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>
+		<property name="maxUploadSize" value="5120000"></property>
+	</bean>
+	
 </beans>

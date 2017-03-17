@@ -13,7 +13,26 @@
 	
 	<div id="mainDiv" class="borderDiv">
 		
-		[Login success]
+		[我所有已完成的调查]
+		<table class="dataTable" >
+<%-- 			<c:if test="${empty surveys }"> --%>
+<!-- 				尚未创建调查 -->
+<%-- 			</c:if> --%>
+<%-- 			<c:if test="${!empty surveys}"> --%>
+			
+<%-- 			</c:if> --%>
+			<tr>
+				<th>LOGO</th>
+				<th>调查名称</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td><img alt="" src="static/image/daoMain.png"></td>
+				<td>爱好</td>
+				<td>查看详情</td>
+			</tr>
+			
+		</table>
 		
 	</div>
 	

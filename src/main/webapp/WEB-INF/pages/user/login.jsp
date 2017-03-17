@@ -6,6 +6,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/common/base.jsp" %>
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function(){
+		
+		$("#submit").click(function(){
+			var username = $("#username").val();
+			var password = $("#password").val();
+			
+			if (username == "" || password == "") {
+				console.log("submit is null");
+				$("#username").parents("tr").prev("tr").hide();
+				$("#username").parents("tr").before("<tr><td colspan='2' style='color: red'>用户名或密码不能为空</td></tr>");
+				return false;
+			}
+		});
+		
+	});
+</script>
 </head>
 <body>
 	
@@ -23,18 +40,18 @@
 				<tr>
 					<td>用户名</td>
 					<td>
-						<input class="longInput" type="text" name="username" placeholder="请输入用户名">
+						<input id="username" class="longInput" type="text" name="username" placeholder="请输入用户名">
 					</td>
 				</tr>
 				<tr>
 					<td>密码</td>
 					<td>
-						<input class="longInput" type="password" name="password" placeholder="请输入密码">
+						<input id="password" class="longInput" type="password" name="password" placeholder="请输入密码">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="登录" >
+						<input id="submit" type="submit" value="登录" >
 					</td>
 				</tr>
 				

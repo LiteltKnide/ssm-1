@@ -19,7 +19,7 @@
 			
 			<!-- 判断是否是企业用户 -->
 			<c:if test="${sessionScope.loginUser.role==1 }">
-				[<a href="#">创建调查</a>]
+				[<a href="survey/new">创建调查</a>]
 				[<a href="#">我未完成的调查</a>]
 			</c:if>
 			
