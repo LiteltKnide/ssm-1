@@ -6,6 +6,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/common/base.jsp" %>
 <title>Insert title here</title>
+<script type="text/javascript">
+	
+	$(function(){
+		
+// 		$("username").focusout(function(){
+// 			var username = $(this).val();
+// 			var regex = "/^[a-z0-9_-]{3,16}$/";
+// 			if(!regex.match(username)){
+// 				console.log("用户名格式错误！");
+// 			}
+// 		})
+		
+	})
+	
+</script>
 </head>
 <body>
 	
@@ -26,19 +41,19 @@
 				<tr>
 					<td>用户名</td>
 					<td>
-						<input class="longInput" type="text" name="username" placeholder="请输入用户名">
+						<input id="username" class="longInput" type="text" name="username" placeholder="请输入用户名">
 					</td>
 				</tr>
 				<tr>
 					<td>密码</td>
 					<td>
-						<input class="longInput"  type="password" name="password" placeholder="请输入密码">
+						<input id="password" class="longInput"  type="password" name="password" placeholder="请输入密码">
 					</td>
 				</tr>
 				<tr>
 					<td>确认密码</td>
 					<td>
-						<input class="longInput"  type="password" name="confirmPassword" placeholder="请再次输入密码">
+						<input id="confirmPassword" class="longInput"  type="password" name="confirmPassword" placeholder="请再次输入密码">
 					</td>
 				</tr>
 				<tr>
