@@ -6,6 +6,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/common/base.jsp" %>
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function(){
+		$("input[name='surveyName']").blur(function(){
+			var name = $(this).val();
+			if(name == ""){
+				alert("请填写调查的名称!")
+				$(this).focus();
+			}
+		});
+		
+		$("input[type='submit']").click(function(){
+			var name = $("input[name='surveyName']").val();
+			if(name==""){
+				alert("请填写调查的名称!");
+				return false;
+			}
+			
+		});
+	});
+</script>
 </head>
 <body>
 	

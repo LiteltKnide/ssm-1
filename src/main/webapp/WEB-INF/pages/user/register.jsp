@@ -10,13 +10,42 @@
 	
 	$(function(){
 		
-// 		$("username").focusout(function(){
+// 		$("#username").blur(function(){
 // 			var username = $(this).val();
-// 			var regex = "/^[a-z0-9_-]{3,16}$/";
-// 			if(!regex.match(username)){
-// 				console.log("用户名格式错误！");
+// 			console.log(username);
+// 			var regex = /^[a-z0-9_-]{3,16}$/;
+// 			if(!regex.test(username)){
+//  				console.log("用户名格式错误！");
+// 				$(this).focus();
 // 			}
 // 		})
+		$("input[type='submit']").click(function(){
+			var username = $("#username").val();
+			var password = $("#password").val();
+			var confirmPassword = $("#confirmPassword").val();
+			
+			var regex = /^[a-z0-9_-]{3,16}$/;
+			
+			if(!regex.test(username)){
+				$("#username").parents("tr").prev("tr").hide();
+				$("#username").parents("tr").before("<tr><td colspan='2' style='color: red'>用户名格式错误!</td></tr>");
+				return false;
+			}
+			regex = /^[a-z0-9_-]{6,18}$/;
+			if(!regex.test(password)){
+				$("#username").parents("tr").prev("tr").hide();
+				$("#username").parents("tr").before("<tr><td colspan='2' style='color: red'>密码格式错误！</td></tr>");
+				return false;
+			}
+			
+			if(confirmPassword == "" || password != confirmPassword){
+				$("#username").parents("tr").prev("tr").hide();
+				$("#username").parents("tr").before("<tr><td colspan='2' style='color: red'>两次密码不一致！</td></tr>");
+				return false;
+			}
+			
+		});
+		
 		
 	})
 	
