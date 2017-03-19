@@ -12,32 +12,37 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 	private BaseMapper<T> baseMapper;
 	
 	@Override
-//	@Transactional()
+	@Transactional
 	public int deleteByPrimaryKey(Integer id) {
 		return baseMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
+	@Transactional
 	public int insert(T t) {
 		return baseMapper.insert(t);
 	}
 
 	@Override
+	@Transactional
 	public int insertSelective(T t) {
 		return baseMapper.insertSelective(t);
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public T selectByPrimaryKey(Integer id) {
 		return baseMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
+	@Transactional
 	public int updateByPrimaryKeySelective(T t) {
 		return baseMapper.updateByPrimaryKeySelective(t);
 	}
 
 	@Override
+	@Transactional
 	public int updateByPrimaryKey(T t) {
 		return baseMapper.updateByPrimaryKey(t);
 	}

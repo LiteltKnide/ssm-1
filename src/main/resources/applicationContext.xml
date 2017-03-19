@@ -26,8 +26,11 @@
 
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 
+	<!-- 声明基于注解的声明式事务配置：扫描@Transactional 
+		transaction-manager="transactionManager" 默认值，可以 省略 -->
 	<tx:annotation-driven transaction-manager="transactionManager"	proxy-target-class="true" />
 	
+	<!-- 事务管理器（切面类） -->
 	<bean id="transactionManager"	class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
@@ -39,7 +42,7 @@
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com/example"/>
+		<property name="basePackage" value="com/example/mapper"/>
 		<property name="annotationClass" value="org.springframework.stereotype.Repository"/>
 	</bean>
 </beans>
