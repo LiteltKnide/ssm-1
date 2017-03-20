@@ -14,6 +14,7 @@ import com.example.exceptions.UsernameAlreadyExistException;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import com.example.utils.MD5Util;
+import com.example.utils.Tools;
 import com.thoughtworks.xstream.core.MapBackedDataHolder;
 
 @Controller
@@ -45,7 +46,7 @@ public class UserController {
 		System.out.println(loginUser);
 		if (loginUser != null) {
 			System.out.println("Login Success" + username + password);
-			session.setAttribute("loginUser", loginUser);
+			session.setAttribute(Tools.LOGIN_USER, loginUser);
 			return "user/success";
 		}
 		map.put("msg", "用户名密码错误！");
@@ -54,7 +55,7 @@ public class UserController {
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session){
-		session.removeAttribute("loginUser");
+		session.removeAttribute(Tools.LOGIN_USER);
 		return "user/login";
 	}
 	

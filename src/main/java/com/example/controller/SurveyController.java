@@ -3,6 +3,7 @@ package com.example.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,17 +12,20 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.exceptions.FileIsNotImgException;
+import com.example.pojo.Page;
 import com.example.pojo.Survey;
 import com.example.pojo.User;
 import com.example.service.SurveyService;
 import com.example.utils.DateUtils;
 import com.example.utils.ImgUtil;
+import com.example.utils.Tools;
 
 @Controller
 @RequestMapping("/survey")
@@ -52,7 +56,7 @@ public class SurveyController {
 			System.out.println("图片logo路径 = "+realPath);
 			path = ImgUtil.resizeImages(inputStream, realPath);
 		}
-		User loginUser = (User) session.getAttribute("loginUser");
+		User loginUser = (User) Tools.getLoginUser(session);
 		
 		survey.setUserId(loginUser.getId());
 		survey.setLogoPath(path);
@@ -61,7 +65,22 @@ public class SurveyController {
 //		System.out.println(survey);
 		surveyService.insert(survey);
 		
-		return "user/success";
+		return "survey/list/0";
 	}
 	
+	
+	@RequestMapping("/list/{status}")
+	public String surveyList(@PathVariable("status") String status,
+			@RequestParam(value="nowPage",required=false) String nowPage,
+			Map<String, Object> map,
+			HttpSession session){
+		
+		User loginUser = (User) Tools.getLoginUser(session);
+		
+		Page<Survey> page = surveyService.getPage(status, nowPage, loginUser.getId());
+		System.out.println(page);
+		map.put("page", page);
+		map.put("status", status);
+		return "survey/survey_list";
+	}
 }

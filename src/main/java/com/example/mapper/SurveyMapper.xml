@@ -12,7 +12,13 @@
   </resultMap>
   
   <sql id="Base_Column_List" >
-    id, survey_name, status, logo_path, create_time, finish_time, user_id
+    id as "id", 
+    survey_name as "surveyName", 
+    status as "status", 
+    logo_path as "logoPath", 
+    create_time as "createTime", 
+    finish_time as "finishTime", 
+    user_id as "userId"
   </sql>
  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -117,4 +123,18 @@
       user_id = #{userId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="countAll" resultType="int">
+  	select count(*) 
+  	from survey
+  	where status = #{status} and user_id = #{userId} 
+  </select>
+  
+  <select id="selectAllByStatus" resultType="com.example.pojo.Survey">
+  	select 
+  	<include refid="Base_Column_List"></include>
+  	from survey 
+  	where 1=1 and status =#{status} and user_id = #{userId} 
+  	limit #{offset},#{limit}
+  </select>
 </mapper>
