@@ -35,7 +35,7 @@
 						<td><img alt="" src="${survey.logoPath }"></td>
 						<td>${survey.surveyName }</td>
 						<td><c:if test="${status == 0}">
-								<a href="#">调整</a>&nbsp;&nbsp;
+								<a href="survey/toUpdateSurvey/${survey.id }">更新</a>&nbsp;&nbsp;
 							<a href="#">删除</a>&nbsp;&nbsp;
 							<a href="#">完成</a>
 							</c:if> <c:if test="${status == 1 }">

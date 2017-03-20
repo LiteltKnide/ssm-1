@@ -33,8 +33,10 @@
 	
 	<div id="mainDiv" class="borderDiv">
 		
-		[创建新调查]
-		<form action="survey/add/" method="post" enctype="multipart/form-data">
+		[更新调查]
+		<form action="survey/update/${survey.id }" method="POST" enctype="multipart/form-data">
+<!-- 			<input type="hidden" name="_method" value="PUT"> -->
+			<input type="hidden" name="id" value="${survey.id}">
 			<table class="formTable">
 				<c:if test="${!empty exception.message }">
 					<tr>
@@ -44,7 +46,7 @@
 				<tr>
 					<td>调查名称</td>
 					<td>
-						<input type="text" name="surveyName" >
+						<input type="text" name="surveyName" value="${survey.surveyName }">
 					</td>
 				</tr>
 				<tr>
@@ -55,7 +57,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="新建">
+						<input type="submit" value="update">
 					</td>
 				</tr>
 			</table>
