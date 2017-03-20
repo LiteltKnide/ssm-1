@@ -47,7 +47,7 @@ public class UserController {
 		if (loginUser != null) {
 			System.out.println("Login Success" + username + password);
 			session.setAttribute(Tools.LOGIN_USER, loginUser);
-			return "user/success";
+			return "redirect:/survey/list/1";
 		}
 		map.put("msg", "用户名密码错误！");
 		return "user/login";
