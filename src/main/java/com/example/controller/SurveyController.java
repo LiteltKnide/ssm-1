@@ -125,4 +125,18 @@ public class SurveyController {
 		map.put("status", status);
 		return "survey/survey_list";
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteSurvey(@PathVariable("id") int id){
+		int i = surveyService.deleteByPrimaryKey(id);
+		return "redirect:/survey/list/0";
+		
+	}
+	
+	@RequestMapping("/toEdit/{id}")
+	public String toEditSurvey(@PathVariable("id") int id,
+			Map<String, Object> map){
+		Map bigMap = surveyService.selectAllBySurvey(id);
+		return "";
+	}
 }

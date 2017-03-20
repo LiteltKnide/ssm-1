@@ -34,11 +34,14 @@
 					<tr>
 						<td><img alt="" src="${survey.logoPath }"></td>
 						<td>${survey.surveyName }</td>
-						<td><c:if test="${status == 0}">
+						<td>
+							<c:if test="${status == 0}">
+								<a href="survey/toEdit/${survey.id }">操作</a>
 								<a href="survey/toUpdateSurvey/${survey.id }">更新</a>&nbsp;&nbsp;
-							<a href="#">删除</a>&nbsp;&nbsp;
-							<a href="#">完成</a>
-							</c:if> <c:if test="${status == 1 }">
+								<a href="survey/delete/${survey.id }">删除</a>&nbsp;&nbsp;
+								<a href="#">完成</a>
+							</c:if> 
+							<c:if test="${status == 1 }">
 								<a href="#">查看详情</a>
 							</c:if></td>
 					</tr>

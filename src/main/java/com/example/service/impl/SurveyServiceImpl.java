@@ -1,13 +1,19 @@
 package com.example.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.mapper.BagMapper;
+import com.example.mapper.QuestionsMapper;
 import com.example.mapper.SurveyMapper;
+import com.example.pojo.Bag;
 import com.example.pojo.Page;
+import com.example.pojo.Questions;
 import com.example.pojo.Survey;
 import com.example.service.SurveyService;
 
@@ -16,6 +22,12 @@ public class SurveyServiceImpl extends BaseServiceImpl<Survey> implements Survey
 
 	@Autowired
 	private SurveyMapper surveyMapper;
+	
+	@Autowired
+	private BagMapper bagMapper;
+	
+	@Autowired
+	private QuestionsMapper questionsMapper;
 
 	@Override
 	@Transactional(readOnly=true)
@@ -40,6 +52,26 @@ public class SurveyServiceImpl extends BaseServiceImpl<Survey> implements Survey
 		page.setResult(result);
 		
 		return page;
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Map selectAllBySurvey(int id) {
+		Map map = new HashMap<>();
+		
+		Survey survey = surveyMapper.selectByPrimaryKey(id);
+		map.put("survey", survey);
+		
+		List<Bag> bags = bagMapper.selectBySurveyId(id);
+		map.put("bags", bags);
+		
+		for (Bag bag : bags) {
+			Integer bagId = bag.getId();
+			List<Questions> questions = questionsMapper.selectAllByBagId(bagId);
+			map.put(bagId, questions);
+		}
+		
+		return map;
 	}
 	
 }

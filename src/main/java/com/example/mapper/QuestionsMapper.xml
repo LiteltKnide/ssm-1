@@ -10,7 +10,11 @@
   </resultMap>
   
   <sql id="Base_Column_List" >
-    id, quetion_name, type, options, bag_id
+    id as "id", 
+    quetion_name as "questionName", 
+    type as "type", 
+    options as "options", 
+    bag_id as "bagId"
   </sql>
  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -19,6 +23,14 @@
     from questions
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectAllByBagId" resultType="com.example.pojo.Questions">
+  	select 
+  	<include refid="Base_Column_List"/>
+  	from questions 
+  	where bag_id = #{bagId}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from questions
     where id = #{id,jdbcType=INTEGER}
