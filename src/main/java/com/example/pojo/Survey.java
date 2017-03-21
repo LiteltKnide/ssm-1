@@ -1,5 +1,7 @@
 package com.example.pojo;
 
+import java.util.List;
+
 public class Survey {
     private Integer id;
 
@@ -14,6 +16,8 @@ public class Survey {
     private String finishTime;
 
     private Integer userId;
+    
+    private List<Bag> bags;
 
     public Integer getId() {
         return id;
@@ -70,6 +74,14 @@ public class Survey {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
+	public List<Bag> getBags() {
+		return bags;
+	}
+
+	public void setBags(List<Bag> bags) {
+		this.bags = bags;
+	}
 
 	@Override
 	public String toString() {

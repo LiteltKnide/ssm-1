@@ -136,7 +136,8 @@ public class SurveyController {
 	@RequestMapping("/toEdit/{id}")
 	public String toEditSurvey(@PathVariable("id") int id,
 			Map<String, Object> map){
-		Map bigMap = surveyService.selectAllBySurvey(id);
-		return "";
+		Survey survey = surveyService.selectAllBySurvey(id);
+		map.put("survey", survey);
+		return "survey/survey_edit";
 	}
 }

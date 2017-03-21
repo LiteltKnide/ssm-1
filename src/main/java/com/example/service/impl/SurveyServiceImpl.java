@@ -56,22 +56,20 @@ public class SurveyServiceImpl extends BaseServiceImpl<Survey> implements Survey
 
 	@Override
 	@Transactional(readOnly=true)
-	public Map selectAllBySurvey(int id) {
-		Map map = new HashMap<>();
+	public Survey selectAllBySurvey(int id) {
 		
 		Survey survey = surveyMapper.selectByPrimaryKey(id);
-		map.put("survey", survey);
 		
 		List<Bag> bags = bagMapper.selectBySurveyId(id);
-		map.put("bags", bags);
 		
 		for (Bag bag : bags) {
 			Integer bagId = bag.getId();
 			List<Questions> questions = questionsMapper.selectAllByBagId(bagId);
-			map.put(bagId, questions);
+			bag.setQuestions(questions);
 		}
+		survey.setBags(bags);
 		
-		return map;
+		return survey;
 	}
 	
 }

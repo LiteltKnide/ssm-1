@@ -9,6 +9,6 @@ public interface SurveyService extends BaseService<Survey>{
 
 	Page<Survey> getPage(String status, String nowPage, int userId);
 
-	Map selectAllBySurvey(int id);
+	Survey selectAllBySurvey(int id);
 
 }
