@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.example.pojo.Bag" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="bag_name" property="bagName" jdbcType="VARCHAR" />
-    <result column="bag_seq" property="bagSeq" jdbcType="VARCHAR" />
+    <result column="bag_seq" property="bagSeq" jdbcType="INTEGER" />
     <result column="survey_id" property="surveyId" jdbcType="INTEGER" />
   </resultMap>
   

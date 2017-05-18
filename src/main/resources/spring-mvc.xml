@@ -28,6 +28,7 @@
 	<mvc:view-controller path="user/toLogin" view-name="user/login"/>
 	<mvc:view-controller path="user/toRegister" view-name="user/register"/>
 	<mvc:view-controller path="survey/new" view-name="survey/survey_new"/>
+	<mvc:view-controller path="bag/toAdd" view-name="bag/bag_new"/>
 	
 	<!-- 拦截器配置 -->
 	<mvc:interceptors>

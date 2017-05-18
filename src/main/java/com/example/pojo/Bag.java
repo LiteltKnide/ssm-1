@@ -7,7 +7,7 @@ public class Bag {
 
     private String bagName;
 
-    private String bagSeq;
+    private Integer bagSeq;
 
     private Integer surveyId;
 
@@ -29,12 +29,12 @@ public class Bag {
         this.bagName = bagName == null ? null : bagName.trim();
     }
 
-    public String getBagSeq() {
+    public Integer getBagSeq() {
         return bagSeq;
     }
 
-    public void setBagSeq(String bagSeq) {
-        this.bagSeq = bagSeq == null ? null : bagSeq.trim();
+    public void setBagSeq(Integer bagSeq) {
+        this.bagSeq = bagSeq;
     }
 
     public Integer getSurveyId() {

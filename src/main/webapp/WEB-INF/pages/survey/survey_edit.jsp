@@ -36,14 +36,14 @@
 				<tr>
 					<td>
 						<br>
-						[还没有创建包裹<span><a href="bag/toAdd" style="text-decoration-line:underline">创建包裹</a></span>]
+						[还没有创建包裹<span><a href="bag/toAdd?surveyId=${survey.id }" style="text-decoration-line:underline">创建包裹</a></span>]
 						<br>
 						<br>
 					</td>
 				</tr>
 			</c:if>
 			<c:if test="${!empty survey.bags }">
-				<c:forEach items="survey.bags" var="bag">
+				<c:forEach items="${survey.bags}" var="bag">
 					<tr>
 						<td>包裹名称</td>
 						<td>${bag.bagName }</td>
